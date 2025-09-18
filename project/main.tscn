@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Script" uid="uid://bs2qeucwtife5" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bp220ksodmrsg" path="res://length_text.gd" id="2_0xm2m"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 652.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Output_TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 24.0
+offset_right = 599.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+text = "TEST"
+placeholder_text = "THIS IS A TEST"
+editable = false
+
+[node name="Options_Control" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 73.0
+offset_right = 88.0
+grow_vertical = 2
+
+[node name="Options_List" type="VBoxContainer" parent="Control/Options_Control"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 30.0
+offset_right = 245.0
+offset_bottom = 602.0
+
+[node name="Uppercase" type="CheckBox" parent="Control/Options_Control/Options_List"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+text = "Uppercase Chracters"
+
+[node name="Lowercase" type="CheckBox" parent="Control/Options_Control/Options_List"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+text = "Lowercase Characters"
+
+[node name="Numbers" type="CheckBox" parent="Control/Options_Control/Options_List"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+text = "Numbers"
+
+[node name="Special" type="CheckBox" parent="Control/Options_Control/Options_List"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+text = "Special Characters"
+
+[node name="Length_Label" type="Label" parent="Control/Options_Control/Options_List"]
+layout_mode = 2
+text = "Length:"
+
+[node name="Length_Slider" type="HSlider" parent="Control/Options_Control/Options_List"]
+layout_mode = 2
+min_value = 12.0
+max_value = 24.0
+value = 12.0
+rounded = true
+tick_count = 12
+
+[node name="Length_Text" type="RichTextLabel" parent="Control/Options_Control/Options_List/Length_Slider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.019
+anchor_right = 1.21
+anchor_bottom = 1.437
+offset_left = 0.009994507
+offset_right = -0.1000061
+offset_bottom = 0.00799942
+script = ExtResource("2_0xm2m")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 156.0
+offset_right = 468.0
+offset_bottom = 196.0
+
+[node name="Button" type="Button" parent="Control/MarginContainer"]
+layout_mode = 2
+text = "GENERATE"
+
+[connection signal="value_changed" from="Control/Options_Control/Options_List/Length_Slider" to="Control/Options_Control/Options_List/Length_Slider/Length_Text" method="_on_length_slider_value_changed"]
+[connection signal="pressed" from="Control/MarginContainer/Button" to="." method="_on_button_pressed"]

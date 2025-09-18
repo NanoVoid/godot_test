@@ -1,0 +1,16 @@
+Primary:
+	Password Output
+	Options:
+		Password / Passphrase
+		Length
+		Toggles:
+			Uppercase
+			Lowercase
+			Numbers
+			Special Character
+			
+			Stretch:
+				Exclude Similar Characters
+				Exclude Ambigous Characters
+				
+Password Output - Text Box
