@@ -63,3 +63,7 @@ func _on_button_pressed() -> void:
 		output_text_edit.text = generate_password()
 	else:
 		output_text_edit.text = "Please select at least one character type"
+
+
+func _on_copy_button_pressed() -> void:
+	DisplayServer.clipboard_set(output_text_edit.text)

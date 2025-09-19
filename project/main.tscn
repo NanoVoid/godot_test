@@ -20,10 +20,27 @@ offset_left = 104.0
 offset_top = 24.0
 offset_right = 599.0
 offset_bottom = 69.0
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
-text = "TEST"
-placeholder_text = "THIS IS A TEST"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 editable = false
+emoji_menu_enabled = false
+
+[node name="Copy_Button" type="Button" parent="Control/Output_TextEdit"]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 7.0
+offset_right = 480.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(2.5027991e-06, 0.5026445, 0.63244003, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.7512542, 0.6457549, 1)
+text = "COPY"
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Output_TextEdit/Copy_Button"]
+position = Vector2(-3, -4)
+scale = Vector2(1.1, 1.1)
+color = Color(0, 0.5532318, 0.55323166, 1)
+invert_enabled = true
+invert_border = 2.5
+polygon = PackedVector2Array(1, 2, 51, 2, 51, 33, 1, 33)
 
 [node name="Options_Control" type="Control" parent="Control"]
 layout_mode = 1
@@ -94,5 +111,6 @@ offset_bottom = 196.0
 layout_mode = 2
 text = "GENERATE"
 
+[connection signal="pressed" from="Control/Output_TextEdit/Copy_Button" to="." method="_on_copy_button_pressed"]
 [connection signal="value_changed" from="Control/Options_Control/Options_List/Length_Slider" to="Control/Options_Control/Options_List/Length_Slider/Length_Text" method="_on_length_slider_value_changed"]
 [connection signal="pressed" from="Control/MarginContainer/Button" to="." method="_on_button_pressed"]
